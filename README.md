@@ -1,55 +1,37 @@
 # AI-Native Engineering Journal
 
-This repository is a public engineering journal about building AI-assisted software systems.
+A public journal about building AI-assisted software systems.
 
-It is not a code dump.
+Not a code dump. Not a tutorial series. It's a record of the architecture decisions, domain modeling mistakes, and workflow design lessons that come up when you're building real applications with AI doing a growing share of the implementation.
 
-It is a record of architecture decisions, domain modeling lessons, workflow design, and AI-assisted engineering practices learned from building real applications.
+Most of these entries start the same way: something in a real system looked wrong, I dug into why, and the answer turned out to be a boundary problem — state, rules, and execution living in the wrong place.
 
-## Main Themes
+## Why this exists
 
-- AI-native software engineering
-- Application architecture
-- Workflow automation
-- Domain modeling
-- Rule engines
-- Observability
-- Productizing internal tools
-- Maintaining software built with AI assistance
+AI makes it faster to build features. It does not make it faster to figure out where one system's responsibility ends and another's begins. That judgment call hasn't gotten any easier — if anything it matters more now, because AI will happily build on top of a bad boundary just as fast as a good one.
 
-## Journal Entries
+This journal is where I write that judgment down before I forget why I made it.
 
-1. When a Rule Engine Starts Becoming an App
-2. Approval Is Not a Boolean Flag
-3. Why Workflow Is Better Than Settings
-4. Separating Facts, Rules, State, and Execution
-5. How AI Changes the Role of an Application Architect
-6. Why I Don't Let AI Confirm My Own Blind Spots
-7. I Let Two AI Positions Argue Before I Trust My Own
-8. You Don't Need a Fusion Platform. You Need to Know What Exists First.
-9. Actions Don't Change State. Effects Do.
-10. AI Made My Team Faster. It Also Made Bad Decisions Faster.
-11. How I Tell If AI Coding Is Actually Working, Not Just Looking Fast
-12. I Don't Build Branches Until I Need Them
-13. An Index Is Not a Decision
-14. The System That Only Watches
-15. Don't Call Me, I'll Poll You
-16. Collect Once, Consume Many
-17. Would You Let an LLM Touch Your P&L? Here's Where I Draw the Line
-18. The Real Question Isn't "Can AI Decide" — It's "Can You Audit the Decision Later"
-19. The Bug That Wasn't a Bug — It Was a Missing Ownership Rule
-20. If the Threshold Might Change, It Belongs in the Rule Engine
-21. A Practice Engine, Not a Question Bank
-22. Code Default Private, Capability Showcase Public
-23. Let the System Grade Itself
-24. Feature Is Not the Unit. Capability Is.
-25. The Result Is the Deliverable, Not the Idea
-26. The Companion, Not the Author
-27. The Fun Part Is Asking "What's Still Pending?"
-34. The Base Doesn't Change. The Speed Does.
+## Entries
 
-## Principle
+1. [When a Rule Engine Starts Becoming an App](./01-rule-engine-becoming-app.md)
+2. [Approval Is Not a Boolean Flag](./02-approval-is-not-a-boolean-flag.md)
+3. [Why Workflow Is Better Than Settings](./03-why-workflow-is-better-than-settings.md)
 
-AI can help us build features faster.
+More entries land as they're written, not on a fixed schedule.
 
-But without clear architecture boundaries, AI can also help us create technical debt faster.
+## Recurring themes
+
+- Where deterministic logic ends and AI-assisted judgment begins
+- State, rules, and execution — keeping them in the right place
+- Domain modeling: when a flag is hiding a missing concept
+- Workflow as a first-class thing, not a side effect of settings and conditionals
+- What changes about application architecture once AI is doing real implementation work
+
+## A principle that runs through most of it
+
+> AI can help us build features faster. But without clear architecture boundaries, it can also help us create technical debt faster.
+
+## About
+
+Written by [Bruce Lee Jenn Leong](https://github.com/leong92232) — logistics/supply-chain software background, currently focused on AI-native application architecture.
