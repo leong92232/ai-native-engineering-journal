@@ -1,0 +1,19 @@
+# The Spot Market Doesn't Wait for Your Approval Workflow
+
+Approval workflows for pricing and urgent bookings exist for good reasons. Someone needs to check the rate makes sense. Someone needs to catch the fraud case before it goes out. Someone needs to make sure exceptions don't quietly become the new normal. None of that governance is wrong in principle.
+
+But in a spot market, the workflow is competing against a clock it was never designed to respect.
+
+Spot rates move in minutes, sometimes less. A price that's available now can be gone, or repriced worse, by the time a multi-step internal approval clears — a review step, a sign-off, an escalation if it's above a threshold. Each step is individually reasonable. Stacked together against a market window measured in minutes, the workflow itself becomes the reason the business is lost, not the pricing decision inside it.
+
+Here's what I think is actually going wrong: governance gets designed against one failure mode — approving a bad decision — and almost never against the other one, which is missing a good decision because the process took too long. The first failure mode gets measured. Somebody wrote a postmortem the last time a bad rate got approved, and the workflow got a new step to prevent it happening again. The second failure mode is invisible by comparison — nobody writes a report titled "we lost this deal because approval took forty-five minutes," because there's no incident to point to, just a booking that quietly went to a competitor who moved faster. The ledger only shows the cost of moving too fast. It never shows the cost of moving too slow, so the workflow only ever accumulates more caution, never less.
+
+The fix isn't removing governance. It's calibrating governance speed to the actual decision speed the market demands, instead of applying one approval chain to every decision regardless of how fast it needs to move. A rate within a pre-agreed band of the target margin doesn't need a human in the loop at all — it needs a guardrail set in advance, checked automatically, with the human review happening on the guardrail's design, not on every instance that falls inside it. The judgment gets made once, upfront, about where the safe range is. After that, speed and safety aren't actually in tension, because the fast path was never ungoverned — it was governed in advance instead of governed in the moment.
+
+I want to be clear this isn't an argument for fast-tracking everything. Large commitments, long-term contracts, anything with non-standard terms or real irreversibility — those genuinely benefit from slower, deliberate review, and rushing them is its own failure mode. The mistake isn't having slow governance. It's applying the same governance speed to decisions that don't share the same risk profile or the same reversibility. A spot rate on a single shipment and a twelve-month contract are not the same kind of decision, and treating them with the same approval chain serves neither one well.
+
+Where I don't have a confident answer: exactly how wide a pre-authorized band should be, or how much an AI-assisted system checking against that band can be trusted before it's been tested against genuinely adversarial or unusual pricing at real volume. My instinct is that the guardrail approach holds up fine for the ordinary case and needs real scrutiny at the edges — unusual lanes, unusual customers, unusual timing — where the historical data the guardrail was calibrated on may not apply. I haven't seen that edge case tested enough to say how it holds.
+
+> When the market moves faster than your approval chain, the approval chain isn't protecting you anymore. It's just deciding, by default, that you'll be the slower bidder every time.
+
+Governance that can't tell a spot decision from a contract decision doesn't produce more safety. It produces one speed, applied to a market that has several.
